@@ -6,7 +6,7 @@ import PropTypes from 'prop-types'
 
 const userStyle = {
     display: 'flex',
-    justifyContent: 'center',
+    justifyContent: 'space-between',
     flexWrap: 'wrap'
 }
 

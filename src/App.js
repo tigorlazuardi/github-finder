@@ -1,6 +1,7 @@
 import React, { Fragment, Component } from 'react';
 import NavBar from './components/layout/NavBar'
 import Users from './components/users/Users'
+import Search from './components/users/Search'
 import './App.css';
 import axios from './config/axios'
 
@@ -22,6 +23,7 @@ class App extends Component {
             <Fragment>
                 <NavBar />
                 <div className="container">
+                    <Search />
                     <Users loading={this.state.loading} users={this.state.users} />
                 </div>
             </Fragment>
