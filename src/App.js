@@ -18,12 +18,24 @@ class App extends Component {
     this.setState({ loading: false, users: data })
   }
 
+  searchUsers = async (text) => {
+    this.setState({ loading: true })
+    const { data } = await axios.get(`/search/users?q=${text}`)
+    this.setState({ loading: false, users: data.items })
+  }
+
+  clearUsers = () => this.setState({ users: [], loading: false })
+
   render() {
     return (
       <Fragment>
         <NavBar />
         <div className='container'>
-          <Search />
+          <Search
+            searchUsers={this.searchUsers}
+            clearUsers={this.clearUsers}
+            showClear={this.state.users.length > 0}
+          />
           <Users loading={this.state.loading} users={this.state.users} />
         </div>
       </Fragment>
